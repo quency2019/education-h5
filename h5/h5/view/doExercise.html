@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+    <link rel="stylesheet" href="../assets/css/public.css">
+<!-- 依赖库 axios/vue/vue-router -->
+<script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+</head>
+
+<body>
+    <div id="app">
+        <mt-header :title="title">
+            <a href="exercise.html" class="back" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+
+        </mt-header>
+        <mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange">
+            <div class="page-part has-header history">
+                <div class="box">
+                    
+                    <mt-radio :title="exercisrtTitle" v-model="value" :options="options">
+                    </mt-radio>
+                </div>
+                <div class="">
+                    您选中的答案：{{value}}
+                </div>
+            </div>
+            <div slot="top" class="mint-loadmore-top">
+                <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">上一题</span>
+                <span v-show="topStatus === 'loading'"></span>
+            </div>
+            <div slot="bottom" class="mint-loadmore-top">
+                <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">下一题</span>
+                <span v-show="topStatus === 'loading'"></span>
+            </div>
+        </mt-loadmore>
+
+
+
+
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '开始做题',
+                    list: [
+
+                        { title: "党史天天学", content: "view/history.html" },
+
+                    ],
+                    allLoaded: false,
+                    value: "",
+                    topStatus: '',
+                    exercisrtTitle: "测试题目内容",
+                    options: [
+                        {
+                            label: '答案一',
+                            value: 'value1',
+
+                        },
+                        {
+                            label: 'optionA',
+                            value: 'value2'
+                        },
+                        {
+                            label: 'optionB',
+                            value: 'value3'
+                        }
+                    ]
+
+                }
+            },
+            methods: {
+                onClick() {
+                    $toast.show("button clicked.")
+                },
+                loadTop() {
+                    // 加载更多数据
+                    this.$refs.loadmore.onTopLoaded();
+                },
+                loadBottom() {
+                    // 加载更多数据
+                    // this.allLoaded = true;// 若数据已全部获取完毕
+                    this.$refs.loadmore.onBottomLoaded();
+                },
+                handleTopChange(status) {
+                    this.topStatus = status;
+                },
+                change(e) {
+                    console.log('change  e', e)
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+    <link rel="stylesheet" href="../assets/css/public.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <mt-header :title="title">
+            <a href="guide.html" class="back" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+
+        </mt-header>
+        <div class="page-part has-header">
+            <ul class="index-box text-c">
+                <a  v-for="item in arr" :key="item.id" :href="item.url"><li>{{item.title}}</li></a>
+
+            </ul>
+
+        </div>
+    </div>
+    <!-- 依赖库 axios/vue/vue-router -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '首页',
+                    arr:[
+                   
+                        {title:"党史天天学",url:"history.html"},
+                        {title:"党题天天做",url:"exercise.html"},
+                        {title:"党课天天看",url:"partClass.html"},
+                        {title:"党性天天悟",url:"partClass.html"},
+                        {title:"活动天天展",url:"activity.html"},
+                    ]
+
+                }
+            },
+            methods: {
+                onClick() {
+                    $toast.show("button clicked.")
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

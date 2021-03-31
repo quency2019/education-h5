@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <!-- 依赖库 axios/vue/vue-router -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+</head>
+
+<body>
+    <div id="app">
+        <mt-header :title="title">
+            <a href="#" class="back" slot="left">
+                <mt-button icon="back"  @click="back"></mt-button>
+            </a>
+
+        </mt-header>
+        <div class="page-part has-header ">
+            <mt-field label="姓名" placeholder="请输入收件人姓名" v-model="info.name"></mt-field>
+            <mt-field label="手机号" placeholder="请输入手机号" type="tel" v-model="info.phone"></mt-field>
+            <mt-field label="地址" placeholder="请输入收货地址"  v-model="info.address"></mt-field>
+            <mt-cell title="您选择的奖品" :value="info.prize"></mt-cell>
+            
+            <div class="row exchange-footer">
+                <mt-button type="primary" size="large">确定兑换</mt-button>
+            </div>
+            
+            
+        </div>
+        
+
+
+
+
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '填写兑换信息',
+                    info:{
+                        name:"收件人姓名",
+                        phone:"155555555",
+                        address:"地址",
+                        prize:"sddd",
+
+
+                    }
+                    
+
+
+                }
+            },
+            methods: {
+                back(){
+                    history.go(-1)
+                }
+
+            },
+            
+
+        })
+    </script>
+</body>
+
+</html>

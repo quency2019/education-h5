@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+    <link rel="stylesheet" href="../assets/css/public.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <mt-header :title="title">
+            <a href="index.html" class="back" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+
+        </mt-header>
+        <div class="page-part has-header history">
+            <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded"
+                ref="loadmore">
+                <ul>
+                    <li v-for="item in list">
+                        <div class="title">{{item.title}}</div>
+                        <div class="content">{{item.content}}</div>
+                    </li>
+                </ul>
+            </mt-loadmore>
+
+
+        </div>
+    </div>
+    <!-- 依赖库 axios/vue/vue-router -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '党史天天学',
+                    list: [
+
+                        { title: "党史天天学", content: "view/history.html" },
+                        // { title: "党题天天做", content: "view/history.html" },
+                        // { title: "党课天天看", content: "view/history.html" },
+                        // { title: "党性天天悟", content: "view/history.html" },
+                        // { title: "活动天天展", content: "view/history.html" },
+                    ],
+                    allLoaded:false
+
+                }
+            },
+            methods: {
+                onClick() {
+                    $toast.show("button clicked.")
+                },
+                loadTop() {
+                    // 加载更多数据
+                    this.$refs.loadmore.onTopLoaded();
+                },
+                loadBottom() {
+                    // 加载更多数据
+                    this.allLoaded = true;// 若数据已全部获取完毕
+                    this.$refs.loadmore.onBottomLoaded();
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

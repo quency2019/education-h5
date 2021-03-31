@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+        <link rel="stylesheet" href="../assets/css/public.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <mt-header :title="title">
+            <!-- <a href="" class="back"  slot="left">
+                    <mt-button icon="back"></mt-button>
+                </a> -->
+
+        </mt-header>
+        <div class="page-part has-header guide-bg fix">
+            
+            <div class="login-box" v-if="logout">
+                <mt-field label="姓名" placeholder="请输入姓名" v-model="user.username"></mt-field>
+                <mt-field label="电话" placeholder="请输入电话" v-model="user.phone"></mt-field>
+                <div class="row text-c clearfix">
+                    <div class="col-50">
+                        <mt-button size="small" type="default" @click="join">点击参加</mt-button>
+                    </div>
+                    <div class="col-50">
+                        <mt-button size="small" type="default">先看看</mt-button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <mt-popup v-model="popupVisible" popup-transition="popup-fade" position="center">
+            <div class="guide-address-popup clearfix">
+                <p>
+                    您当前不在干窑范围内，不能参加此处活动。
+                </p>
+                <div class="row text-c">
+                    <mt-button size="small" type="default" @click="popupHidden">确定</mt-button>
+
+                </div>
+
+            </div>
+
+        </mt-popup>
+    </div>
+    <!-- 依赖库 axios/vue/vue-router -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '干窑党史教育活动',
+                    logout: true,
+                    user: {
+                        username: "姓名",
+                        phone: "13586407072",
+                    },
+                    popupVisible:false
+                }
+            },
+            methods: {
+                onClick() {
+                    $toast.show("button clicked.")
+                },
+                // 地理位置提示
+                handleClick: function () {
+
+                    this.popupVisible = true
+
+                },
+                popupHidden(){
+                    this.popupVisible = false
+
+                },
+                join(){
+                    location.href="/h5/view/index.html"
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

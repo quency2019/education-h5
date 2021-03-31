@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+    <link rel="stylesheet" href="../assets/css/public.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <mt-header :title="title">
+            <a href="exercise.html" class="back" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+
+        </mt-header>
+        <div class="page-part has-header">
+            <div class="list-rank">
+                <ul class="list-title text-c clearfix">
+                    <li>名次</li>
+                    <li>用户名</li>
+                    <li>答对题数</li>
+                </ul>
+                <ul class="list-box text-c clearfix" v-for="item in list" :key="item.rank">
+                    <li>{{item.rank}}</li>
+                    <li>{{item.name}}</li>
+                    <li>{{item.score}}</li>
+    
+                </ul>
+                <ul class="list-box text-c clearfix myself" >
+                    <li>{{myself.rank}}</li>
+                    <li>本人</li>
+                    <li>{{myself.score}}</li>
+    
+                </ul>
+            </div>
+            
+
+        </div>
+    </div>
+    <!-- 依赖库 axios/vue/vue-router -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '排行榜',
+                    list:[
+                        {rank:1,name:"姓名",score:"99"},
+                        {rank:2,name:"姓名",score:"98"},
+                        {rank:3,name:"姓名",score:"97"},
+                        {rank:4,name:"姓名",score:"95"},
+                    ],
+                    myself:{rank:1,name:"姓名",score:"99"},
+                    
+
+                }
+            },
+            methods: {
+                onClick() {
+                    $toast.show("button clicked.")
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

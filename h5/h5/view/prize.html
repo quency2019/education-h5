@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <!-- 依赖库 axios/vue/vue-router -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+</head>
+
+<body>
+    <div id="app">
+        <mt-header :title="title">
+            <a href="mark.html" class="back" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+
+        </mt-header>
+        <div class="page-part has-header history">
+            <div class="prize-box">
+                <ul>
+
+                    <li v-for="item in list">
+                        <input type="radio" :id="item.title" name="value" :value="item.title" @change="change" :data-title="item.title"></input>
+                        <label :for="item.title">
+                            <img v-lazy="item.url" />
+                            <span>{{item.title}}</span></label>
+
+
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="prize-footer clearfix">
+            <div class="row ">
+                <div class="col-50">您选择的答案：{{value}}</div>
+                <div class="col-50 text-r"> <a href="exchange.html"><mt-button type="primary" size="small">提交</mt-button></a></div>
+            </div>
+            
+           
+        </div>
+
+
+
+
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '奖品',
+                    list: [
+
+                        { title: "奖品1", url: "../assets/img/prize.png" },
+                        { title: "奖品2", url: "../assets/img/prize.png" },
+                        { title: "奖品3", url: "../assets/img/prize.png" },
+                        { title: "奖品4", url: "../assets/img/prize.png" },
+                        { title: "奖品5", url: "../assets/img/prize.png" },
+                        { title: "奖品6", url: "../assets/img/prize.png" },
+
+                    ],
+                    value:"111",
+
+
+                }
+            },
+            methods: {
+                change(e){
+                 
+                    this.value=e.target.dataset.title;
+                    console.log('this.value', this.value)
+                }
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

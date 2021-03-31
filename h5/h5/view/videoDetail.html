@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干窑党史教育活动</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css" rel="external nofollow" target="_blank"
+        rel="external nofollow" target="_blank">
+    <link rel="stylesheet" href="../assets/css/public.css">
+    <link rel="stylesheet" href="../assets/css/mui.min.css">
+    <link rel="stylesheet" href="../assets/css/video.css">
+
+</head>
+
+<body style="background-color: #fff;">
+    <div id="app">
+        <mt-header :title="title">
+            <a href="index.html" class="back" slot="left">
+                <mt-button icon="back"></mt-button>
+            </a>
+
+        </mt-header>
+        <div class="page-part has-header class-box" >
+            <div class="class-fist-box">
+                <div class="title">标题</div>
+                <div class="video-box">
+                    <video class="" webkit-playsinline style="object-fit:fill;">
+                        <source src='../assets/video/demo.mp4' type="video/mp4"></source>
+                        <p>设备不支持</p>
+                    </video>
+                    <img src="../assets/img/prize.png"/>
+                    <div class="controls">
+                        <div>
+                          
+                        </div>
+                       
+                    </div>
+                </div>
+              
+            </div>
+            
+            
+            
+            </div>
+            
+
+        </div>
+    </div>
+    <!-- 依赖库 axios/vue/vue-router -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+
+
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/mint-ui/lib/index.js" rel="external nofollow" rel="external nofollow"></script>
+    
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    title: '视频详情',
+                   
+                   
+                    
+
+                }
+            },
+            methods: {
+                onClick() {
+                    $toast.show("button clicked.")
+                },
+
+            },
+            mounted() {
+              
+            },
+
+        })
+    </script>
+
+<script src="../assets/js/mui.min.js"></script>
+<script src="../assets/js/video.js"></script>
+<script>
+   mui.bvd();
+</script>
+</body>
+
+</html>
