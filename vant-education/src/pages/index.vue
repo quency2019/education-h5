@@ -30,9 +30,11 @@ export default {
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
-    this.$store.commit("loading/show")
+
+    this.$store.dispatch("loading/setFetchShow",true)
     setTimeout(()=>{
-      this.$store.commit("loading/hide")
+      this.$store.dispatch("loading/setFetchShow",false)
+    console.log('this.$store.dispatch', this.$store)
 
     },5000)
   },
