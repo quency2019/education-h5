@@ -6,6 +6,8 @@ import router from './router'
 import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import './util/rem';
+import http from "axios"
 Vue.config.productionTip = false
 Vue.use(Vant);
 // Vue.use(Vant)
@@ -31,6 +33,7 @@ Vue.use(Vant);
 //   }
 // })
 
+Vue.prototype.$http=http
 
 new Vue({
   el: '#app',

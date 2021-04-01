@@ -1,13 +1,10 @@
 <!--  -->
 <template>
-  <div class="van-doc-demo-section has-header">
-    <div class="van-doc-demo-block">
-index
-   <router-link to="/login">login</router-link>
+  <div class="page-part has-header">
+    <div class="page-content">
+      <div class="p">index</div>
+      <router-link to="/guide">guide</router-link>
     </div>
-   
-    
-   
   </div>
 </template>
 
@@ -30,21 +27,35 @@ export default {
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
-
     this.$store.dispatch("loading/setFetchShow",true)
-    setTimeout(()=>{
-      this.$store.dispatch("loading/setFetchShow",false)
-    console.log('this.$store.dispatch', this.$store)
+ 
+    this.$http("http://localhost:12306/api").then((res) => {
+      if (res.data.code) {
 
-    },5000)
+        setTimeout(()=>{
+this.$store.dispatch("loading/setFetchShow",false)
+        },2000)
+            
+
+      }
+    });
+
+    // this.$store.dispatch("loading/setFetchShow",false)
   },
   beforeCreate() {}, //生命周期 - 创建之前
   beforeMount() {}, //生命周期 - 挂载之前
   beforeUpdate() {}, //生命周期 - 更新之前
-  updated() {}, //生命周期 - 更新之后
+  updated() {
+
+  }, //生命周期 - 更新之后
   beforeDestroy() {}, //生命周期 - 销毁之前
   destroyed() {}, //生命周期 - 销毁完成
   activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
-<style scoped></style>
+<style scoped>
+.p {
+  font-size: 15px;
+  width: 150px;
+}
+</style>

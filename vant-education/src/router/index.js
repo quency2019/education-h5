@@ -23,6 +23,17 @@ export default new Router({
         },
         component: () => import('@/pages/index')
 
+      },
+      {
+        path: 'my',
+        name: 'my',
+
+        meta: {
+          requireLogin: true,
+          title: "我的",
+        },
+        component: () => import('@/pages/my')
+
       }]
     },
     {

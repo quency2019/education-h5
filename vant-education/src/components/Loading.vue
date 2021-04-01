@@ -39,8 +39,8 @@ created() {
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
     // this.isShow=this.$store.loading
-     this.isShow=this.$store.state.loading.isShow
-    console.log('this.$store.state.loading.isShow', this.$store.state.loading.isShow)
+    
+    console.log('this.$store.state.loading.isShow', this.isShow)
 
 },
 beforeCreate() {}, //生命周期 - 创建之前
