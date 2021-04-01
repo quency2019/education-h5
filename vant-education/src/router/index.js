@@ -12,41 +12,42 @@ export default new Router({
       path: '/',
       name: 'Layout',
       component: Layout,
-      children: {
-        path: '',
+      redirect:"index",
+      children: [{
+        path: 'index',
         name: 'index',
-       
-        meta:{
-          requireLogin:true,
+
+        meta: {
+          requireLogin: true,
           title: "首页",
         },
-        component:()=> import('@/pages/index')
-     
-      }
+        component: () => import('@/pages/index')
+
+      }]
     },
     {
       path: '/login',
       name: 'login',
-     
-      meta:{
-        requireLogin:false,
+
+      meta: {
+        requireLogin: false,
         title: "登录页",
       },
-      component:()=> import('@/pages/login')
+      component: () => import('@/pages/login')
 
-     
+
     },
     {
       path: '/guide',
       name: 'guide',
-     
-      meta:{
-        requireLogin:false,
+
+      meta: {
+        requireLogin: false,
         title: "引导页",
       },
-      component:()=> import('@/pages/guide')
+      component: () => import('@/pages/guide')
 
-     
+
     },
     {
       path: '*',

@@ -1,6 +1,8 @@
 <!--  -->
 <template>
-<div class=''>login</div>
+<div class='loading-box' v-show="isShow">
+    <van-loading color="#1989fa" />
+</div>
 </template>
 
 <script>
@@ -10,6 +12,12 @@
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {},
+props:{
+isShow:{
+    type:Boolean,
+    default:false
+}
+},
 data() {
 //这里存放数据
 return {
@@ -30,6 +38,9 @@ created() {
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
+    // this.isShow=this.$store.loading
+     this.isShow=this.$store.state.loading.isShow
+    console.log('this.$store.state.loading.isShow', this.$store.state.loading.isShow)
 
 },
 beforeCreate() {}, //生命周期 - 创建之前
@@ -43,4 +54,11 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 </script>
 <style scoped>
 
+.loading-box{
+    position: absolute;
+    top: 50%;
+    
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
 </style>
